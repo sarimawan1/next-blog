@@ -1,5 +1,5 @@
 import react from "react";
-import styles from "./categoryList.module.css"
+import styles from "./categoryList.module.css";
 
 const CategoryList = () => {
     return (
