@@ -1,7 +1,8 @@
 "use client"
 
 import {ThemeContext} from '@/context/themeContext'
-import React, {useContext, useState} from 'react'
+import React, {useState} from 'react'
+import { useContext } from "react";
 
 
 const ThemeProvider = ({children}) => {
