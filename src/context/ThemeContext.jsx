@@ -1,17 +1,31 @@
 "use client";
 
-import { createContext } from "react";
+import { createContext, useEffect, useState } from "react";
 
-const getFromLocalSpace = () => {
-    
-    const value = localStorage.getItem("theme");
-    return value ||"light";
-    
-};
+export const ThemeContext = createContext();
 
-export const ThemeContext = createContext
-const [theme,setTheme] = ("light");
-export const ThemeContextProvider = ({ children }) => {
-    return getFromLocalSpacelStorage ();
-    return <ThemeContext.Provider>{children}</ThemeContext.Provider>
+    const getFromLocalSpace = () => {
+        if(typeof window !== undefined) {
+         const value = localStorage.getItem("theme");
+         return value ||"light";
+        }
+    };
+
+export const ThemeContextProvider = ({children}) => { 
+    const [theme,setTheme] = useState(() => {
+        return getFromLocalSpace ();
+    });
+
+    const toggle = () => {
+        setTheme(theme === "light" ? "dark" : "light");
+        };
+
+    useEffect(() => {
+     localStorage.setItem("theme",theme);
+    }, [theme]);
+
+
+    return (
+        <ThemeContext.Provider value = {{theme, toggle}} >{children}</ThemeContext.Provider>
+    );
 };
