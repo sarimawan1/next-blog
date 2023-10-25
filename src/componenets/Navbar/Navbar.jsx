@@ -1,12 +1,12 @@
 import react from "react";
-import styles from "./styles.css";
+import styles from "./navbar.module.css";
 import image from 'next/image';
 import ThemeToggle from "../themeToggle/ThemeToggle";
 import AuthLinks from "../authLinks/AuthLinks";
 const Navbar = () => {
     return (
         <div className={styles.container}>
-            <div className={styles.social}>
+            <div className={StyleSheet.social}>
                 <image src="/facebook.png" alt="facebook" width={24} height={24}/>
                 <image src="/instagram.png" alt="instagram" width={24} height={24}/>
                 <image src="/tiktok.png" alt="tiktok" width={24} height={24}/>
